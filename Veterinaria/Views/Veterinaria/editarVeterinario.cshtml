@@ -1,0 +1,90 @@
+﻿@model Veterinaria.Models.EntidadVeterinario
+
+@{
+    ViewBag.Title = "editarVeterinario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<nav class="full-box navbar-info">
+    <a href="#" class="float-left show-nav-lateral">
+        <i class="fas fa-exchange-alt"></i>
+    </a>
+    <a href="user-update.html">
+        <i class="fas fa-user-cog"></i>
+    </a>
+    <a href="#" class="btn-exit-system">
+        <i class="fas fa-power-off"></i>
+    </a>
+</nav>
+
+<!-- Page header -->
+<div class="full-box page-header">
+    <h3 class="text-left">
+        <i class="fas fa-sync-alt fa-fw"></i> &nbsp; ACTUALIZAR VETERINARIO
+    </h3>
+    <p class="text-justify">
+
+    </p>
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger">
+            <strong>Error!</strong>  @TempData["ErrorMessage"]
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <samp>&times;</samp>
+            </button>
+        </div>
+
+    }
+</div>
+
+<!-- Content here-->
+<div class="container-fluid">
+    <form action="@Url.Action("actualizarVeterinario", "Veterinaria")" method="post" class="form-neon" autocomplete="off">
+        <fieldset>
+            <legend><i class="fas fa-user"></i> &nbsp; Información básica</legend>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <div class="form-group">
+                            <label>IDcliente</label>
+                            <input type="number" class="form-control" name="idveterinario" value="@Html.DisplayTextFor(m => m.idveterinario)">
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="form-group">
+                            <label class="bmd-label-floating">Nombre</label>
+                            <input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,40}" class="form-control" name="nombre" value="@Html.DisplayTextFor(m => m.nombre)">
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="form-group">
+                            <label class="bmd-label-floating">Apellido</label>
+                            <input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,40}" class="form-control" name="apellido" value="@Html.DisplayTextFor(m => m.apellido)">
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="form-group">
+                            <label class="bmd-label-floating">Especialidad</label>
+                            <input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,40}" class="form-control" name="especialidad" value="@Html.DisplayTextFor(m => m.especialidad)">
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="form-group">
+                            <label class="bmd-label-floating">Teléfono</label>
+                            <input type="text" pattern="[0-9()+]{1,20}" class="form-control" name="telefono" value="@Html.DisplayTextFor(m => m.telefono)">
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="form-group">
+                            <label class="bmd-label-floating">Correo</label>
+                            <input type="email" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ#- ]{1,150}" class="form-control" name="correo" value="@Html.DisplayTextFor(m => m.correo)">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <p class="text-center" style="margin-top: 40px;">
+            <button type="submit" class="btn btn-raised btn-success btn-sm"><i class="fas fa-sync-alt"></i> &nbsp; ACTUALIZAR</button>
+        </p>
+    </form>
+</div>

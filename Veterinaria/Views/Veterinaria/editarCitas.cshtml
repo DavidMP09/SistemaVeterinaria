@@ -1,0 +1,134 @@
+﻿@model Veterinaria.Models.EntidadCitas
+
+@{
+    ViewBag.Title = "editarCitas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var listacliente = ViewBag.listacliente;
+    var listaservicios = ViewBag.listaservicios;
+    var listamascota = ViewBag.listamascota;
+    var listaveterinario = ViewBag.listaveterinario;
+}
+
+<nav class="full-box navbar-info">
+    <a href="#" class="float-left show-nav-lateral">
+        <i class="fas fa-exchange-alt"></i>
+    </a>
+    <a href="user-update.html">
+        <i class="fas fa-user-cog"></i>
+    </a>
+    <a href="#" class="btn-exit-system">
+        <i class="fas fa-power-off"></i>
+    </a>
+</nav>
+
+<!-- Page header -->
+<div class="full-box page-header">
+    <h3 class="text-left">
+        <i class="fas fa-sync-alt fa-fw"></i> &nbsp; ACTUALIZAR CITA
+    </h3>
+    <p class="text-justify">
+
+    </p>
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger">
+            <strong>Error!</strong>  @TempData["ErrorMessage"]
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <samp>&times;</samp>
+            </button>
+        </div>
+
+    }
+</div>
+
+<!-- Content here-->
+<div class="container-fluid">
+    <form action="@Url.Action("actualizarcitas", "Veterinaria")" method="post" class="form-neon" autocomplete="off">
+        <fieldset>
+            <legend><i class="fas fa-user"></i> &nbsp; Información básica</legend>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <div class="form-group">
+                            <label>IDcalendario</label>
+                            <input type="number" class="form-control" name="idcitas" value="@Html.DisplayTextFor(m => m.idcitas)">
+
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="form-group">
+                            <label>Fecha</label>
+                            <input type="date" class="form-control" name="fechar" value="@Html.DisplayTextFor(m => m.fechar)">
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="form-group">
+                            <label class="bmd-label-floating">Hora</label>
+                            <input type="time" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,40}" class="form-control" name="hora" value="@Html.DisplayTextFor(m => m.hora)">
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="form-group">
+                            <label class="bmd-label-floating">Estado</label>
+                            <input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,40}" class="form-control" name="estado" value="@Html.DisplayTextFor(m => m.estado)">
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="form-group">
+                            <label class="bmd-label-floating">Cliente</label>
+                            <select class="form-control" name="cbocliente">
+                                @foreach (var item in listacliente)
+                                {
+                                    <option value="@item.idcliente">@item.nombre</option>
+                                }
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="form-group">
+                            <label class="bmd-label-floating">Servicio</label>
+                            <select class="form-control" name="cboservicio">
+                                @foreach (var item in listaservicios)
+                                {
+                                    <option value="@item.idservicios">@item.nombre</option>
+                                }
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="form-group">
+                            <label class="bmd-label-floating">Mascota</label>
+                            <select class="form-control" name="cbomascota">
+                                @foreach (var item in listamascota)
+                                {
+                                    <option value="@item.idmascota">@item.nombre</option>
+                                }
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="form-group">
+                            <label class="bmd-label-floating">Veterinario</label>
+                            <select class="form-control" name="cboveterinario">
+                                @foreach (var item in listaveterinario)
+                                {
+                                    <option value="@item.idveterinario">@item.nombre</option>
+                                }
+
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <p class="text-center" style="margin-top: 40px;">
+            <button type="submit" class="btn btn-raised btn-success btn-sm"><i class="fas fa-sync-alt"></i> &nbsp; ACTUALIZAR</button>
+        </p>
+    </form>
+</div>
+
+
+

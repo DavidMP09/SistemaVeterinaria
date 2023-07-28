@@ -1,0 +1,107 @@
+﻿@model IEnumerable<Veterinaria.Models.EntidadTotales>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<nav class="full-box navbar-info">
+    <a href="#" class="float-left show-nav-lateral">
+        <i class="fas fa-exchange-alt"></i>
+    </a>
+    <a href="user-update.html">
+        <i class="fas fa-user-cog"></i>
+    </a>
+    <a href="#" class="btn-exit-system">
+        <i class="fas fa-power-off"></i>
+    </a>
+</nav>
+
+<!-- Page header -->
+<div class="full-box page-header">
+    <h3 class="text-left">
+        <i class="fab fa-dashcube fa-fw"></i> &nbsp; INICIO
+    </h3>
+    <p class="text-justify">
+
+    </p>
+</div>
+
+<!-- Content -->
+@foreach (Veterinaria.Models.EntidadTotales item in Model)
+{
+    <div class="full-box tile-container">
+
+        <a href="@Url.Action("ListarCliente", "Veterinaria")" class="tile">
+            <div class="tile-tittle">Clientes</div>
+            <div class="tile-icon">
+                <i class="fas fa-users fa-fw"></i>
+                @*<h6 id="cantidadcliente">@item.cliente.idcliente</h6>*@
+                <p>@item.cliente.idcliente Registrados</p>
+            </div>
+        </a>
+
+        <a href="@Url.Action("ListarMascota", "Veterinaria")" class="tile">
+            <div class="tile-tittle">Macotas</div>
+            <div class="tile-icon">
+                <i class="fas fa-dog"></i>
+                <p>@item.mascota.idmascota Registrados</p>
+            </div>
+        </a>
+
+        <a href="@Url.Action("ListarServicios", "Veterinaria")" class="tile">
+            <div class="tile-tittle">Servicios</div>
+            <div class="tile-icon">
+                <i class="fas fa-hospital"></i>
+                <p>@item.servicio.idservicios Registrados</p>
+            </div>
+        </a>
+
+        <a href="@Url.Action("ListarVeterinario", "Veterinaria")" class="tile">
+            <div class="tile-tittle">Veterinarios</div>
+            <div class="tile-icon">
+                <i class="fas fa-user-nurse"></i>
+                <p>@item.veterinario.idveterinario Registrados</p>
+            </div>
+        </a>
+
+        <a href="@Url.Action("ListarCitas", "Veterinaria")" class="tile">
+            <div class="tile-tittle">Citas</div>
+            <div class="tile-icon">
+                <i class="fas fa-edit"></i>
+                <p>@item.cita.idcitas Registrados</p>
+            </div>
+        </a>
+
+        <a href="@Url.Action("ListarHistorial", "Veterinaria")" class="tile">
+            <div class="tile-tittle">Historial Mascota</div>
+            <div class="tile-icon">
+                <i class="fas fa-newspaper"></i>
+                <p>@item.historial.idhistorial Registrados</p>
+            </div>
+        </a>
+        <a href="@Url.Action("ListarCalendario", "Veterinaria")" class="tile">
+            <div class="tile-tittle">Calendario Vacunas</div>
+            <div class="tile-icon">
+                <i class="fas fa-calendar-alt"></i>
+                <p>@item.calendario.idcalendario Registrados</p>
+            </div>
+        </a>
+        <a href="@Url.Action("ListarUsuario","Veterinaria")" class="tile">
+            <div class="tile-tittle">Usuarios</div>
+            <div class="tile-icon">
+                <i class="fas fa-user-shield"></i>
+                <p>@item.usuario.IdUsuario Registrados</p>
+            </div>
+        </a>
+
+        @*<a href="company.html" class="tile">
+            <div class="tile-tittle">Configuraciones</div>
+            <div class="tile-icon">
+                <i class="fas fa-cog"></i>
+                <p>@item.cliente.idcliente Registrados</p>
+            </div>
+        </a>*@
+
+
+    </div>
+}

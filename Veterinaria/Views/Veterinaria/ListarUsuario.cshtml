@@ -1,0 +1,134 @@
+﻿@model IEnumerable<Veterinaria.Models.Usuario>
+
+@{
+    ViewBag.Title = "ListarUsuario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<nav class="full-box navbar-info">
+    <a href="#" class="float-left show-nav-lateral">
+        <i class="fas fa-exchange-alt"></i>
+    </a>
+    <a href="user-update.html">
+        <i class="fas fa-user-cog"></i>
+    </a>
+    <a href="#" class="btn-exit-system">
+        <i class="fas fa-power-off"></i>
+    </a>
+</nav>
+
+<!-- Page header -->
+<div class="full-box page-header">
+    <h3 class="text-left">
+        <i class="fas fa-clipboard-list fa-fw"></i> &nbsp; LISTA DE USUARIO
+    </h3>
+    <p class="text-justify">
+
+    </p>
+    @if (TempData["InfoMessage"] != null)
+    {
+        <div class="alert alert-info">
+            <strong>Info!:</strong>  @TempData["InfoMessage"]
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <samp>&times;</samp>
+            </button>
+        </div>
+
+    }
+    else if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success">
+            <strong>Exito!:</strong>  @TempData["SuccessMessage"]
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <samp>&times;</samp>
+            </button>
+        </div>
+
+    }
+    else if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger">
+            <strong>Error!:</strong>  @TempData["ErrorMessage"]
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <samp>&times;</samp>
+            </button>
+        </div>
+
+    }
+    else if (TempData["PrimaryMessage"] != null)
+    {
+        <div class="alert alert-primary">
+            <strong>info!:</strong>  @TempData["PrimaryMessage"]
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <samp>&times;</samp>
+            </button>
+        </div>
+
+    }
+    else if (TempData["SecondaryMessage"] != null)
+    {
+        <div class="alert alert-secondary">
+            <strong>info!:</strong>  @TempData["SecondaryMessage"]
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <samp>&times;</samp>
+            </button>
+        </div>
+
+    }
+
+
+</div>
+
+<!-- Content here-->
+<div class="container-fluid">
+    <div class="table-responsive">
+        <table id="tablausuario" class="table table-dark table-sm">
+            <thead>
+                <tr class="text-center roboto-medium">
+                    <th>#</th>
+                    <th>CORREO</th>
+                    <th>CLAVE</th>
+                    <th></th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Veterinaria.Models.Usuario item in Model)
+                {
+                    <tr class="text-center">
+
+                        <td>@item.IdUsuario</td>
+                        <td>@item.Correo</td>
+                        <td>@item.Clave</td>
+
+                        <td>
+                            <a class="btn btn-success" href="@Url.Action("editarUsuario","Veterinaria", new { id= item.IdUsuario })">
+                                <i class="fas fa-sync-alt"></i>
+                            </a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <a class="btn btn-warning" href="@Url.Action("borrarusuario","Veterinaria", new { id= item.IdUsuario })">
+                                <i class="far fa-trash-alt"></i>
+                            </a>
+
+                        </td>
+
+
+                    </tr>
+
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    window.setTimeout(function () {
+        $(".alert").fadeTo(500, 0).slideUp(500, function () {
+            $(this).remove();
+        });
+    }, 4000);
+
+
+</script>

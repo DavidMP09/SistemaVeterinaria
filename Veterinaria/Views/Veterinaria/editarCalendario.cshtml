@@ -1,0 +1,73 @@
+﻿@model Veterinaria.Models.EntidadCalendario
+
+@{
+    ViewBag.Title = "editarCalendario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<nav class="full-box navbar-info">
+    <a href="#" class="float-left show-nav-lateral">
+        <i class="fas fa-exchange-alt"></i>
+    </a>
+    <a href="user-update.html">
+        <i class="fas fa-user-cog"></i>
+    </a>
+    <a href="#" class="btn-exit-system">
+        <i class="fas fa-power-off"></i>
+    </a>
+</nav>
+
+<!-- Page header -->
+<div class="full-box page-header">
+    <h3 class="text-left">
+        <i class="fas fa-sync-alt fa-fw"></i> &nbsp; ACTUALIZAR CALENDARIO
+    </h3>
+    <p class="text-justify">
+
+    </p>
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger">
+            <strong>Error!</strong>  @TempData["ErrorMessage"]
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <samp>&times;</samp>
+            </button>
+        </div>
+
+    }
+</div>
+
+<!-- Content here-->
+<div class="container-fluid">
+    <form action="@Url.Action("actualizarCalendario", "Veterinaria")" method="post" class="form-neon" autocomplete="off">
+        <fieldset>
+            <legend><i class="fas fa-user"></i> &nbsp; Información básica</legend>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <div class="form-group">
+                            <label>IDcalendario</label>
+                            <input type="number" class="form-control" name="idcalendario" value="@Html.DisplayTextFor(m => m.idcalendario)">
+
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="form-group">
+                            <label>Fecha</label>
+                            <input type="date" class="form-control" name="fecha" value="@Html.DisplayTextFor(m => m.fecha)">
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="form-group">
+                            <label class="bmd-label-floating">Enfermedad</label>
+                            <input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,40}" class="form-control" name="enfermedad" value="@Html.DisplayTextFor(m => m.enfermedad)">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <p class="text-center" style="margin-top: 40px;">
+            <button type="submit" class="btn btn-raised btn-success btn-sm"><i class="fas fa-sync-alt"></i> &nbsp; ACTUALIZAR</button>
+        </p>
+    </form>
+</div>

@@ -1,0 +1,237 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Veterinaria</title>
+
+    <!-- Normalize V8.0.1 -->
+    <link href="~/css/normalize.css" rel="stylesheet" />
+
+    <!-- Bootstrap V4.3 -->
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Bootstrap Material Design V4.0 -->
+    <link href="~/css/bootstrap-material-design.min.css" rel="stylesheet" />
+
+    <!-- Font Awesome V5.9.0 -->
+    <link href="~/css/all.css" rel="stylesheet" />
+
+    <!-- Sweet Alerts V8.13.0 CSS file -->
+    <link href="~/css/sweetalert2.min.css" rel="stylesheet" />
+
+    <!-- Sweet Alert V8.13.0 JS file-->
+    <script src="~/js/sweetalert2.min.js"></script>
+
+    <!-- jQuery Custom Content Scroller V3.1.5 -->
+    <link href="~/css/jquery.mCustomScrollbar.css" rel="stylesheet" />
+
+    <!-- General Styles -->
+    <link href="~/css/style.css" rel="stylesheet" />
+
+    <!-- CSS datatables -->
+    <link href="~/css/main.css" rel="stylesheet" />
+
+    <!--datables CSS básico-->
+    <link href="~/datatables/datatables.min.css" rel="stylesheet" />
+
+    <!--datables estilo bootstrap 4 CSS-->
+    <link href="~/datatables/DataTables-1.10.18/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+
+
+
+</head>
+<body>
+    <!-- Main container -->
+    <main class="full-box main-container">
+        <!-- Nav lateral -->
+        <section class="full-box nav-lateral">
+            <div class="full-box nav-lateral-bg show-nav-lateral"></div>
+            <div class="full-box nav-lateral-content">
+                <figure class="full-box nav-lateral-avatar">
+                    <i class="far fa-times-circle show-nav-lateral"></i>
+                    <img src="/assets/avatar/veterinaria.jpg" class="img-fluid" alt="Avatar">
+                    <figcaption class="roboto-medium text-center">
+                        MIVET BERTCHI <br><small class="roboto-condensed-light">Veterinaria</small>
+                    </figcaption>
+                </figure>
+                <div class="full-box nav-lateral-bar"></div>
+                <nav class="full-box nav-lateral-menu">
+                    <ul>
+                        <li>
+                            <a href="@Url.Action("Index","Home")"><i class="fab fa-dashcube fa-fw"></i> &nbsp; Inicio</a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="nav-btn-submenu"><i class="fas fa-users fa-fw"></i> &nbsp; Clientes <i class="fas fa-chevron-down"></i></a>
+                            <ul>
+                                <li>
+                                    <a href="@Url.Action("NuevoCliente","Veterinaria")"><i class="fas fa-plus fa-fw"></i> &nbsp; Nuevo Cliente</a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("ListarCliente","Veterinaria")"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de Clientes</a>
+                                </li>
+
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="#" class="nav-btn-submenu"><i class="fas fa-dog"></i> &nbsp; Macotas <i class="fas fa-chevron-down"></i></a>
+                            <ul>
+                                <li>
+                                    <a href="@Url.Action("NuevoMascota","Veterinaria")"><i class="fas fa-plus fa-fw"></i> &nbsp; Nuevo mascota</a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("ListarMascota","Veterinaria")"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de Mascotas</a>
+                                </li>
+
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="#" class="nav-btn-submenu"><i class="fas fa-hospital"></i> &nbsp; Servicios<i class="fas fa-chevron-down"></i></a>
+                            <ul>
+                                <li>
+                                    <a href="@Url.Action("NuevoServicios","Veterinaria")"><i class="fas fa-plus fa-fw"></i> &nbsp; Nuevo Servicio</a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("ListarServicios","Veterinaria")"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de Servicios</a>
+                                </li>
+
+
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="#" class="nav-btn-submenu"><i class="fas fa-user-nurse"></i> &nbsp; Veterinarios <i class="fas fa-chevron-down"></i></a>
+                            <ul>
+                                <li>
+                                    <a href="@Url.Action("NuevoVeterinario","Veterinaria")"><i class="fas fa-plus fa-fw"></i> &nbsp; Nuevo Veterianrio</a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("ListarVeterinario","Veterinaria")"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de Veterinarios</a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-btn-submenu"><i class="fas fa-edit"></i> &nbsp; Citas <i class="fas fa-chevron-down"></i></a>
+                            <ul>
+                                <li>
+                                    <a href="@Url.Action("NuevoCitas","Veterinaria")"><i class="fas fa-plus fa-fw"></i> &nbsp; Nuevo Cita</a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("ListarCitas","Veterinaria")"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de Citas</a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-btn-submenu"><i class="fas fa-newspaper"></i> &nbsp; HistorialM <i class="fas fa-chevron-down"></i></a>
+                            <ul>
+                                <li>
+                                    <a href="@Url.Action("NuevoHistorial","Veterinaria")"><i class="fas fa-plus fa-fw"></i> &nbsp; Nuevo HistorialM</a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("ListarHistorial","Veterinaria")"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de HistorialM</a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-btn-submenu"><i class="fas fa-calendar-alt"></i> &nbsp; Calendarios<i class="fas fa-chevron-down"></i></a>
+                            <ul>
+                                <li>
+                                    <a href="@Url.Action("NuevoCalendario","Veterinaria")"><i class="fas fa-plus fa-fw"></i> &nbsp; Nuevo Calendario</a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("ListarCalendario","Veterinaria")"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de Calendarios</a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-btn-submenu"><i class="fas fa-user-shield"></i> &nbsp; Usuarios <i class="fas fa-chevron-down"></i></a>
+                            <ul>
+                                @*<li>
+                                        <a href="NuevoUsuario.aspx"><i class="fas fa-plus fa-fw"></i> &nbsp; Nuevo Usuario</a>
+                                    </li>*@
+                                <li>
+                                    <a href="@Url.Action("ListarUsuario","Veterinaria")"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de Usuarios</a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        @*<li>
+                                <a href="#" class="nav-btn-submenu"><i class="fas fa-cog"></i> &nbsp; Configuracion <i class="fas fa-chevron-down"></i></a>
+                                <ul>
+                                    <li>
+                                        <a href="NuevoConfiguracion.aspx"><i class="fas fa-plus fa-fw"></i> &nbsp; Nuevo Configuracion</a>
+                                    </li>
+                                </ul>
+                            </li>*@
+
+
+                    </ul>
+                </nav>
+            </div>
+        </section>
+
+        <!-- Page content -->
+        <section class="full-box page-content">
+
+            @RenderBody()
+        </section>
+    </main>
+
+
+    <!--=============================================
+    =            Include JavaScript files           =
+    ==============================================-->
+    <!-- jQuery V3.4.1 -->
+    <script src="~/js/jquery-3.4.1.min.js"></script>
+
+    <!-- popper -->
+    <script src="~/js/popper.min.js"></script>
+
+    <!-- Bootstrap V4.3 -->
+    <script src="~/js/bootstrap.min.js"></script>
+
+    <!-- jQuery Custom Content Scroller V3.1.5 -->
+    <script src="~/js/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    <!-- Bootstrap Material Design V4.0 -->
+    <script src="~/js/bootstrap-material-design.min.js"></script>
+
+    <script>$(document).ready(function () { $('body').bootstrapMaterialDesign(); });</script>
+
+
+    <script src="~/js/main.js"></script>
+
+    <!-- jQuery, Popper.js, Bootstrap JS -->
+    <script src="~/js/jquery-3.3.1.min.js"></script>
+
+
+    <!-- datatables JS -->
+    <script src="~/datatables/datatables.min.js"></script>
+
+    <!-- para usar botones en datatables JS -->
+    <script src="~/datatables/Buttons-1.5.6/js/dataTables.buttons.min.js"></script>
+    <script src="~/datatables/JSZip-2.5.0/jszip.min.js"></script>
+    <script src="~/datatables/pdfmake-0.1.36/pdfmake.min.js"></script>
+    <script src="~/datatables/pdfmake-0.1.36/vfs_fonts.js"></script>
+    <script src="~/datatables/Buttons-1.5.6/js/buttons.html5.min.js"></script>
+
+
+    <script src="~/jsdatatable/datatablecalendario.js"></script>
+    <script src="~/jsdatatable/datatablecliente.js"></script>
+    <script src="~/jsdatatable/datatablehistorial.js"></script>
+    <script src="~/jsdatatable/datatableveterinario.js"></script>
+    <script src="~/jsdatatable/datatableservicios.js"></script>
+    <script src="~/jsdatatable/tatatablemascota.js"></script>
+    <script src="~/jsdatatable/datatablecitas.js"></script>
+    <script src="~/jsdatatable/datatableusuario.js"></script>
+
+</body>
+</html>
